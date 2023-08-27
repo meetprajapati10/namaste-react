@@ -1,0 +1,40 @@
+*********  npm install -D parcel ********
+
+==> -D What is the -D?
+
+==> There are Two types of dependencyes.
+    1. Dev dependency  --> Generely Required for the developing the our app. --> Less Optimization on dev build. 
+    2. Normal dependency --> It is Used in Production also. --> More Optimization on prod build.
+
+
+******** npx parcel index.html **********
+
+==> npm & npx:
+    1. npm: To use 'INSTALL' our package like --> ("npm install -D parcel")
+    2. npx: To use 'EXECUTE' our package like --> ("npx parcel index.html")
+                                                  ("npx anyPackageName SourceOfOurProject") and execute the package of bundle.
+
+
+***********************************
+
+Parcel:
+
+- Dev Build.
+- Local Server --> (localhost:1234)
+- HMR = Hot Module Replacement --> Which is automatically refresh our page when we can save. HMR improves the development experience by updating modules in the browser at runtime without needing a whole page refresh.
+- File Watching Algorithm - Written in C++ --> Parcel doing that, Use.
+- Caching --> Faster Builds.
+- Diagnostics --> If you make an error in your code or configuration, Parcel displays beautiful         diagnostics in your terminal and in the browser.
+
+==> Automatic production optimization.
+- Image optimization
+- Minification
+- Tree shaking --> It statically analyzes the imports and exports of each module, and removes everything that isn't used.
+- Compression
+- Code splitting
+- Content hashing --> Parcel automatically includes content hashes in the names of all output files. This enables long-term browser caching, because the output is guaranteed not to change unless the name does. (Ex: app.js, react.js ==> app.a96cdf.js)
+
+- Bundling
+- Differential bundling - support older browser
+- HTTPs
+- Different dev and prod bundles
