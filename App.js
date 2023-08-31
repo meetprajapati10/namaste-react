@@ -1,19 +1,56 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const parent = React.createElement("div", { id: "parent" }, [
-    React.createElement("div", { id: "child" }, [
-        React.createElement("h1", {}, "Namste ReactJs."),
-        React.createElement("h2", {}, "I'm a h2 tag"),
-    ]),
-    React.createElement("div", { id: "child2" }, [
-        React.createElement("h1", {}, "I'm a h1 tag"),
-        React.createElement("h2", {}, "I'm a h2 tag"),
-    ]),
-]);
+// React.createElement => ReactElement-JS Object => HTMLElement(render)
 
-console.log(parent); // It is a React Element and React Element is basically a JS Object.
+// const heading = React.createElement(
+//   "h1",
+//   { id: "heading" },
+//   "Namaste React ✌️",
+// );
 
+// JSX (transpiled before it reaches the JS Engine) - PARCEL - Babel
+
+// JSX => Babel transpiles it to React.createElement => ReactElement-JS Object => HTMLElement(render)
+// const jsxHeading = (
+//   <h1 id="heading" className="head" tabIndex="2">
+//     Namaste React Using JSX ✌️
+//   </h1>
+// );
+
+// *********************************************************
+
+// React Element
+const heading = (
+  <div>
+    <h1 id="heading">Namaste React Using JSX</h1>
+  </div>
+);
+
+// Title component is functional component
+const Title = () => {
+  return (
+    <h1 id="title" className="titleHead">
+      React Title
+    </h1>
+  );
+};
+
+// React Functional Component
+
+// Component inside the component AKA Component Composition
+const HeadingComponent = () => (
+  <div>
+    <Title />
+    {/* we can also use {Title()} */}
+    {/* we can also use <Title></Title> */}
+    {console.log(10)}
+    <h1 id="heading">Namaste React Using Component!</h1>
+  </div>
+);
+
+// create root using createRoot
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(parent);
+// passing react element inside root
+root.render(<Title />);
