@@ -58,3 +58,8 @@
   width: 100%;
   height: 45%;
 }
+
+.filter-btn {
+  margin: 10px;
+  cursor: pointer;
+}
