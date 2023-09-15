@@ -1,7 +1,8 @@
 import RestaurantCard from "./RestaurantCard";
-import resList from "../utils/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { RES_URL } from "../utils/constants";
+import { Link } from "react-router-dom";
 
 // Body Component for body section: It contain all restaurant cards
 // We are mapping restaurantList array and passing data to RestaurantCard component as props with unique key as index
@@ -12,16 +13,14 @@ const Body = () => {
 
   const [searchText, setSearchText] = useState("");
 
-  console.log("Body Render");
+  // console.log("Body Render");
 
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.9787903&lng=72.59566219999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING",
-    );
+    const data = await fetch(RES_URL);
 
     const json = await data.json();
 
@@ -89,7 +88,9 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredRes.map((list) => (
-          <RestaurantCard key={list.info.id} resData={list} />
+          <Link key={list.info.id} to={"/restaurants/" + list.info.id}>
+            <RestaurantCard resData={list} />
+          </Link>
         ))}
       </div>
     </div>
