@@ -1,8 +1,8 @@
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
-import Shimmer from "./Shimmer";
-import { RES_URL } from "../utils/constants";
+import { RESDATA_API } from "../utils/constants";
 import { Link } from "react-router-dom";
+import Shimmer from "./Shimmer";
 
 // Body Component for body section: It contain all restaurant cards
 // We are mapping restaurantList array and passing data to RestaurantCard component as props with unique key as index
@@ -20,7 +20,7 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(RES_URL);
+    const data = await fetch(RESDATA_API);
 
     const json = await data.json();
 
@@ -28,18 +28,14 @@ const Body = () => {
     //   json.data.cards[5].card.card.gridElements.infoWithStyle.restaurants,
     // );
     setListOfRes(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants,
     );
     setFilteredRes(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants,
     );
   };
-
-  // if (listOfRes.length === 0) {
-  //   return <Shimmer />;
-  // }
 
   return listOfRes.length === 0 ? (
     <Shimmer />
@@ -77,8 +73,10 @@ const Body = () => {
         <button
           className="filter-btn"
           onClick={() => {
-            setListOfRes(
-              listOfRes.filter((filterdList) => filterdList.info.avgRating > 4),
+            setFilteredRes(
+              listOfRes.filter(
+                (filterdList) => filterdList.info.avgRating > 4.4,
+              ),
             );
             // console.log(listOfRes);
           }}
