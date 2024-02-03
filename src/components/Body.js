@@ -1,41 +1,25 @@
 import RestaurantCard from "./RestaurantCard";
-import { useEffect, useState } from "react";
-import { RESDATA_API } from "../utils/constants";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Shimmer from "./Shimmer";
+import useOnlineStatus from "../utils/useOnineStatus";
+import useRestaurantData from "../utils/useRestaurantData";
 
-// Body Component for body section: It contain all restaurant cards
-// We are mapping restaurantList array and passing data to RestaurantCard component as props with unique key as index
 const Body = () => {
-  // Local State Variable - Super Powerful Variable
-  const [listOfRes, setListOfRes] = useState([]);
-  const [filteredRes, setFilteredRes] = useState([]);
+  const [listOfRes, filteredRes, setFilteredRes] = useRestaurantData();
 
   const [searchText, setSearchText] = useState("");
 
-  // console.log("Body Render");
+  const onlineStatus = useOnlineStatus();
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    const data = await fetch(RESDATA_API);
-
-    const json = await data.json();
-
-    // console.log(
-    //   json.data.cards[5].card.card.gridElements.infoWithStyle.restaurants,
-    // );
-    setListOfRes(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants,
+  if (onlineStatus === false) {
+    return (
+      <div>
+        <h1>Looks like you're offline!!</h1>
+        <h2>Please check your internet connection!</h2>
+      </div>
     );
-    setFilteredRes(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants,
-    );
-  };
+  }
 
   return listOfRes.length === 0 ? (
     <Shimmer />
