@@ -10,37 +10,41 @@ const Header = () => {
 
   return (
     <div className="header">
-      <div className="logo-container">
-        <img className="logo" alt="food-logo" src={LOGO_URL} />
-      </div>
+      <div className="flex justify-between bg-pink-50 shadow-lg">
+        <div className="logo-container">
+          <img className="w-24" alt="food-logo" src={LOGO_URL} />
+        </div>
 
-      <div className="nav-items">
-        <ul>
-          <li>Online Status: {onlineStatus ? "🟢" : "🔴"}</li>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About Us</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact Us</Link>
-          </li>
-          <li>
-            <Link to="/grocery">Grocery</Link>
-          </li>
-          <li>Cart</li>
-          <button
-            className="login"
-            onClick={() => {
-              btnNameReact === "Login"
-                ? setBtnNameReact("Logout")
-                : setBtnNameReact("Login");
-            }}
-          >
-            {btnNameReact}
-          </button>
-        </ul>
+        <div className="nav-items flex items-center">
+          <ul className="flex p-4 m-4">
+            <li className="mx-4">
+              Online Status: {onlineStatus ? "🟢" : "🔴"}
+            </li>
+            <li className="mx-4">
+              <Link to="/">Home</Link>
+            </li>
+            <li className="mx-4">
+              <Link to="/about">About Us</Link>
+            </li>
+            <li className="mx-4">
+              <Link to="/contact">Contact Us</Link>
+            </li>
+            <li className="mx-4">
+              <Link to="/grocery">Grocery</Link>
+            </li>
+            <li className="mx-4">Cart</li>
+            <button
+              className="login"
+              onClick={() => {
+                btnNameReact === "Login"
+                  ? setBtnNameReact("Logout")
+                  : setBtnNameReact("Login");
+              }}
+            >
+              {btnNameReact}
+            </button>
+          </ul>
+        </div>
       </div>
     </div>
   );
