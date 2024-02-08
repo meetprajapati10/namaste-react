@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { CDN_URL } from "../utils/constants";
+import userContext from "../utils/userContext";
 
 const RestaurantCard = (props) => {
+  const { loggedInUser } = useContext(userContext);
+
   const { resData } = props;
 
   const { name, cuisines, avgRating, costForTwo } = resData?.info;
@@ -21,8 +25,20 @@ const RestaurantCard = (props) => {
       <h4>{avgRating}</h4>
       <h4>{costForTwo}</h4>
       <h4>{deliveryTime} mins</h4>
+      <h4>User : {loggedInUser}</h4>
     </div>
   );
+};
+
+export const withOpenResLabel = (RestaurantCard) => {
+  return (props) => {
+    return (
+      <div>
+        <label className="absolute bg-green-300 m-2 p-1 rounded-lg">Open</label>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
 };
 
 export default RestaurantCard;
