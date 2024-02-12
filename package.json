@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "(https://github.com/MeetPrajapati84/namaste-react.git)"
+    "url": "(https://github.com/meetprajapati10/namaste-react.git)"
   },
   "author": "Meet Prajapati",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MeetPrajapati84/namaste-react/issues"
+    "url": "https://github.com/meetprajapati10/namaste-react/issues"
   },
-  "homepage": "https://github.com/MeetPrajapati84/namaste-react#readme",
+  "homepage": "https://github.com/meetprajapati10/namaste-react#readme",
   "devDependencies": {
     "parcel": "^2.9.3",
     "postcss": "^8.4.33",
@@ -24,8 +24,10 @@
     "tailwindcss": "^3.4.1"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^9.1.0",
     "react-router-dom": "^6.15.0"
   },
   "browserslist": [
