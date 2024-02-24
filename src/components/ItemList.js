@@ -19,7 +19,11 @@ const ItemList = ({ items, dummyData }) => {
         const { id, name, defaultPrice, price, description, imageId } =
           item?.card?.info;
         return (
-          <div key={id} className="p-2 m-2 flex justify-between border-b-2">
+          <div
+            data-testid="itemsList"
+            key={id}
+            className="p-2 m-2 flex justify-between border-b-2"
+          >
             <div className="w-9/12 text-left">
               <div>
                 <div className="font-medium">{name}</div>
@@ -28,17 +32,17 @@ const ItemList = ({ items, dummyData }) => {
               <p className="text-xs mt-2">{description}</p>
             </div>
 
-            <div className="w-3/12 p-4 ">
-              <div className="absolute">
+            <div className="w-3/12 p-4">
+              <div className="relative">
                 <button
-                  className="p-2 rounded-md my-28 mx-11  bg-white font-bold text-sm text-green-500 shadow-lg"
+                  className="p-2 rounded-md absolute -bottom-1 left-[43px]  bg-white font-bold text-sm text-green-500 shadow-lg"
                   onClick={() => handleAddItem(item)}
                 >
                   ADD +
                 </button>
+                <img src={CDN_URL + imageId} className="rounded-lg" />
               </div>
-              <img src={CDN_URL + imageId} className="rounded-lg" />
-              <p className="text-xs pt-1">Customisable</p>
+              <p className="text-xs pt-[3px]">Customisable</p>
             </div>
           </div>
         );

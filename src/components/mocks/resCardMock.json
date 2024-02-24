@@ -1,0 +1,49 @@
+{
+  "id": "47197",
+  "name": "Domino's Pizza",
+  "cloudinaryImageId": "b94fe58f381f80e1a70cd711b8178df0",
+  "locality": "Ghodasar",
+  "areaName": "Isanpur",
+  "costForTwo": "₹400 for two",
+  "cuisines": ["Pizzas", "Italian", "Pastas", "Desserts"],
+  "avgRating": 4.2,
+  "veg": true,
+  "parentId": "2456",
+  "avgRatingString": "4.2",
+  "totalRatingsString": "1K+",
+  "sla": {
+    "deliveryTime": 25,
+    "serviceability": "SERVICEABLE",
+    "slaString": "25 mins",
+    "iconType": "ICON_TYPE_EMPTY"
+  },
+  "availability": {
+    "nextCloseTime": "2024-02-15 01:59:00",
+    "opened": true
+  },
+  "badges": {},
+  "isOpen": true,
+  "type": "F",
+  "badgesV2": {
+    "entityBadges": {
+      "imageBased": {},
+      "textBased": {},
+      "textExtendedBadges": {}
+    }
+  },
+  "aggregatedDiscountInfoV3": {
+    "header": "30% OFF",
+    "subHeader": "UPTO ₹75"
+  },
+  "differentiatedUi": {
+    "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+    "differentiatedUiMediaDetails": {
+      "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+      "lottie": {},
+      "video": {}
+    }
+  },
+  "reviewsSummary": {},
+  "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+  "restaurantOfferPresentationInfo": {}
+}
